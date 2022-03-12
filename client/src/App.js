@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route } from "react-router-dom";
+import "antd/dist/antd.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
+import { ChakraProvider } from "@chakra-ui/react";
+
+import { Login } from "./components/login";
+import { NavBar } from "./components/navbar";
+import { Home } from "./components/home";
+import { ProductDetail } from "./components/productDetails";
+import { NewProduct } from "./components/products/createProduct";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <Route path="/" render={() => <NavBar />} />
+      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/detalle/:id" render={() => <ProductDetail />} />
+      <Route exact path="/login" render={() => <Login />} />
+      <Route exact path="/nuevoproducto" render={() => <NewProduct />} />
+    </ChakraProvider>
   );
 }
 
