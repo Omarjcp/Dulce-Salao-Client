@@ -10,6 +10,7 @@ import { Home } from "./components/home";
 import { ProductDetail } from "./components/productDetails";
 import { NewProduct } from "./components/products/createProduct";
 import { CreateCategories } from "./components/products/createCategories";
+import { Footbar } from "./components/footbar";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         path="/nuevascategorias/:catg"
         render={() => <CreateCategories />}
       />
+      <Route path="/" render={() => <Footbar />} />
     </ChakraProvider>
   );
 }

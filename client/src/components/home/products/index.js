@@ -94,7 +94,7 @@ export const Products = () => {
       <Wrap spacing="0" justify="center" alignItems="center" paddingTop="1rem">
         {products?.map((product) => {
           return (
-            <WrapItem>
+            <WrapItem key={product.id}>
               <Box
                 className="containerProduct"
                 borderWidth="1px"

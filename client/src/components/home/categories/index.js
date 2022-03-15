@@ -39,18 +39,42 @@ export const Categories = () => {
     }
   };
 
-  const onDeleteCategory = (e, idCategory) => {
+  const onDeleteCategory = (e, idCategory, idFlavor, idFilling) => {
     e.preventDefault();
-    dispatch(deleteCategory(idCategory));
+    if (idCategory) {
+      dispatch(deleteCategory(idCategory));
 
-    setTimeout(() => {
-      swal("Categoria eliminada correctamente", {
-        buttons: false,
-        icon: "success",
-      });
-    }, 500);
+      setTimeout(() => {
+        swal("Categoria eliminada correctamente", {
+          buttons: false,
+          icon: "success",
+        });
+      }, 500);
 
-    setTimeout(() => history.go(0), 3000);
+      setTimeout(() => history.go(0), 3000);
+    } else if (idFlavor) {
+      dispatch(deleteFlavor(idFlavor));
+
+      setTimeout(() => {
+        swal("Sabor eliminado correctamente", {
+          buttons: false,
+          icon: "success",
+        });
+      }, 500);
+
+      setTimeout(() => history.go(0), 3000);
+    } else if (idFilling) {
+      dispatch(deleteFilling(idFilling));
+
+      setTimeout(() => {
+        swal("Relleno eliminado correctamente", {
+          buttons: false,
+          icon: "success",
+        });
+      }, 500);
+
+      setTimeout(() => history.go(0), 3000);
+    }
   };
 
   useEffect(() => {
@@ -82,7 +106,9 @@ export const Categories = () => {
                       fontSize=".5rem"
                       height="1rem"
                       width="1rem"
-                      onClick={(e) => onDeleteCategory(e, category.id)}
+                      onClick={(e) =>
+                        onDeleteCategory(e, category.id, false, false)
+                      }
                     />
                   ) : (
                     <></>
@@ -104,6 +130,20 @@ export const Categories = () => {
                 id={flavor.id}
               >
                 {flavor.nombre}
+                {localStorage.getItem("token") ? (
+                  <CloseButton
+                    display="inline"
+                    color="red"
+                    fontSize=".5rem"
+                    height="1rem"
+                    width="1rem"
+                    onClick={(e) =>
+                      onDeleteCategory(e, false, flavor.id, false)
+                    }
+                  />
+                ) : (
+                  <></>
+                )}
               </Link>
             );
           })}
@@ -120,6 +160,18 @@ export const Categories = () => {
                 id={fill.id}
               >
                 {fill.nombre}
+                {localStorage.getItem("token") ? (
+                  <CloseButton
+                    display="inline"
+                    color="red"
+                    fontSize=".5rem"
+                    height="1rem"
+                    width="1rem"
+                    onClick={(e) => onDeleteCategory(e, false, false, fill.id)}
+                  />
+                ) : (
+                  <></>
+                )}
               </Link>
             );
           })}
