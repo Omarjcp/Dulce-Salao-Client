@@ -9,6 +9,7 @@ import { NavBar } from "./components/navbar";
 import { Home } from "./components/home";
 import { ProductDetail } from "./components/productDetails";
 import { NewProduct } from "./components/products/createProduct";
+import { CreateCategories } from "./components/products/createCategories";
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
       <Route exact path="/detalle/:id" render={() => <ProductDetail />} />
       <Route exact path="/login" render={() => <Login />} />
       <Route exact path="/nuevoproducto" render={() => <NewProduct />} />
+      <Route
+        exact
+        path="/nuevascategorias/:catg"
+        render={() => <CreateCategories />}
+      />
     </ChakraProvider>
   );
 }

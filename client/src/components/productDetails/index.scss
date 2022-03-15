@@ -1,0 +1,59 @@
+.parentDescription {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+
+  .containerImageDescription {
+    width: 100%;
+    height: 20rem;
+  }
+
+  .containerDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 20rem;
+    width: 100%;
+    margin-left: 0.5rem;
+
+    .buttonConsult {
+      width: 13rem;
+      font-size: 1.2rem;
+      line-height: 3rem;
+      font-weight: 600;
+      color: #ff7b7b;
+      border-radius: 50px;
+
+      &:hover {
+        background-color: #ff7b7b;
+        color: #fff;
+        box-shadow: 2px 4px 10px rgb(190, 190, 190);
+      }
+    }
+  }
+}
+
+@media (max-width: 649px) {
+  .parentDescription {
+    flex-direction: column;
+
+    .containerImageDescription {
+      height: 17rem;
+    }
+
+    .containerDescription {
+      margin-top: 0.5rem;
+      margin-left: 0;
+
+      .buttonConsult {
+        width: 7rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

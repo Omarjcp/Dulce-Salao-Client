@@ -8,6 +8,9 @@ import {
   GET_PRODUCTS_FOR_ID,
   GET_PRODUCT_FOR_CATEGORIES_ID,
   DELETE_PRODUCT,
+  DELETE_CATEGORY,
+  DELETE_FILLING,
+  DELETE_FLAVOR,
   CREATE_PRODUCT,
   UPDATE_PRODUCT,
   GET_FLAVOR,
@@ -36,6 +39,9 @@ const estadoInicial = {
   msgCreateCategory: "",
   msgCreateFlavor: "",
   msgCreateFilling: "",
+  msgDeleteCategory: "",
+  msgDeleteFlavor: "",
+  msgDeleteFilling: "",
 };
 
 export default function rootReducer(state = estadoInicial, action) {
@@ -97,6 +103,12 @@ export default function rootReducer(state = estadoInicial, action) {
         categories: action.payload.data,
       };
 
+    case DELETE_CATEGORY:
+      return {
+        ...state,
+        msgDeleteCategory: action.payload.msg,
+      };
+
     case GET_CATEGORY_FOR_ID:
       return {
         ...state,
@@ -115,6 +127,12 @@ export default function rootReducer(state = estadoInicial, action) {
         flavors: action.payload.data,
       };
 
+    case DELETE_FLAVOR:
+      return {
+        ...state,
+        msgDeleteFlavor: action.payload.msg,
+      };
+
     case CREATE_FILLING:
       return {
         ...state,
@@ -125,6 +143,12 @@ export default function rootReducer(state = estadoInicial, action) {
       return {
         ...state,
         filling: action.payload.data,
+      };
+
+    case DELETE_FILLING:
+      return {
+        ...state,
+        msgDeleteFilling: action.payload.msg,
       };
 
     case GET_PRODUCT_FOR_CATEGORIES_ID:

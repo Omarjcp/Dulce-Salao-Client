@@ -1,0 +1,93 @@
+.containerProduct {
+  margin: 0.5rem;
+  width: 23rem;
+  height: 24rem;
+
+  .nameProduct {
+    font-size: 1rem;
+  }
+
+  .buttonSeeMore {
+    font-size: 13px;
+    color: #ff7b7b;
+    line-height: 15px;
+    font-weight: normal;
+    border-radius: 50px;
+
+    &:hover {
+      background-color: #ff7b7b;
+      color: #fff;
+      box-shadow: 2px 4px 10px rgb(190, 190, 190);
+    }
+  }
+}
+
+.containerInputSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  margin-top: 1rem;
+
+  input {
+    width: 17rem;
+  }
+}
+
+@media (max-width: 649px) {
+  .containerProduct {
+    width: 17rem;
+    height: 23rem;
+
+    .buttonSeeMore {
+      font-size: 11px;
+      line-height: 14px;
+      height: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .containerInputSearch {
+    button {
+      display: none;
+    }
+    input {
+      display: none;
+    }
+    div {
+      display: none;
+    }
+  }
+}
+
+.imageProduct {
+  height: 15rem;
+}
+
+.imageProductDetails {
+  height: 20rem;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-prev:hover {
+  left: 10px;
+  z-index: 2;
+  color: white;
+  font-size: 30px;
+  height: auto;
+  width: auto;
+  background-color: rgb(146, 146, 146);
+  border-radius: 50%;
+}
+
+.ant-carousel .slick-next,
+.ant-carousel .slick-next:hover {
+  right: 10px;
+  z-index: 2;
+  color: white;
+  font-size: 30px;
+  height: auto;
+  width: auto;
+  background-color: rgb(146, 146, 146);
+  border-radius: 50%;
+}

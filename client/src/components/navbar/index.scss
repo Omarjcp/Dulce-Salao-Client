@@ -1,0 +1,69 @@
+.containerImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("./ImagenTienda.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 12rem;
+  padding: 5rem;
+
+  .iconLogin {
+    position: absolute;
+    color: white;
+    top: 2rem;
+    right: 1rem;
+  }
+
+  .logo {
+    width: 15rem;
+    height: 7rem;
+    margin: 1rem;
+  }
+
+  .tabMenu {
+    color: white;
+  }
+
+  .tabMid {
+    margin: 0 1.7rem 0 1.7rem;
+  }
+
+  @media (max-width: 649px) {
+    .containerTabs {
+      display: none;
+    }
+  }
+
+  @media (min-width: 650px) {
+    .containerTabsIcons {
+      display: none;
+    }
+
+    .hamburgerIcon {
+      display: none !important;
+    }
+  }
+}
+
+.hamburgerIcon {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+}
+
+.linkSeeAll {
+  margin: auto;
+  // margin-bottom: 2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
