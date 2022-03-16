@@ -1,7 +1,51 @@
 .containerFootbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  width: 100vw;
+  height: 9rem;
   background-color: #ff7b7b;
+  margin-top: 2rem;
+
+  .containerAdress {
+    .adress {
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .adressligth {
+      font-weight: 300;
+      color: #ffffff;
+    }
+  }
+
+  .containerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .imageLogoFooter {
+      height: 100%;
+    }
+  }
+
+  .containerNetworks {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 530px) {
+  .containerFootbar {
+    .containerAdress {
+      display: none;
+    }
+
+    .containerLogo {
+      .imageLogoFooter {
+        width: 11rem;
+        height: 5rem;
+      }
+    }
+  }
 }

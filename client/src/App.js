@@ -11,6 +11,7 @@ import { ProductDetail } from "./components/productDetails";
 import { NewProduct } from "./components/products/createProduct";
 import { CreateCategories } from "./components/products/createCategories";
 import { Footbar } from "./components/footbar";
+import { AboutUs } from "./components/aboutus";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         path="/nuevascategorias/:catg"
         render={() => <CreateCategories />}
       />
+      <Route exact path="/nosotros" render={() => <AboutUs />} />
       <Route path="/" render={() => <Footbar />} />
     </ChakraProvider>
   );
