@@ -12,6 +12,7 @@ import { NewProduct } from "./components/products/createProduct";
 import { CreateCategories } from "./components/products/createCategories";
 import { Footbar } from "./components/footbar";
 import { AboutUs } from "./components/aboutus";
+import { ContactUs } from "./components/contactus";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
         render={() => <CreateCategories />}
       />
       <Route exact path="/nosotros" render={() => <AboutUs />} />
-      <Route path="/" render={() => <Footbar />} />
+      <Route exact path="/contacto" render={() => <ContactUs />} />
+      <Route exact path="/" render={() => <Footbar />} />
     </ChakraProvider>
   );
 }

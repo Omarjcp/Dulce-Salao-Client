@@ -1,34 +1,28 @@
-.containerMainAboutus {
+.containerMainContactus {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   margin-top: 2rem;
 
-  .containerTextAboutus {
+  .containerTextContactus {
     max-width: 70%;
 
     p {
       font-size: 1rem;
     }
-    label {
-      color: grey;
-    }
   }
 }
 
 @media (max-height: 700px) {
-  .containerMainAboutus {
+  .containerMainContactus {
     margin-top: 1rem;
 
-    .containerTextAboutus {
+    .containerTextContactus {
       max-width: 80%;
 
       p {
         font-size: 0.8rem;
-      }
-      label {
-        color: grey;
       }
     }
   }

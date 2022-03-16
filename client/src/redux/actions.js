@@ -34,7 +34,10 @@ export const SIGN_IN = "SIGN_IN";
 export function signIn(payload) {
   return async function (dispatch) {
     try {
-      const { data } = await axios.post("http://localhost:3001/login", payload);
+      const { data } = await axios.post(
+        "https://dulce-y-salado.herokuapp.com/login",
+        payload
+      );
       if (data.token) {
         localStorage.setItem("token", data.token);
         return dispatch({ type: SIGN_IN, payload: data });
@@ -92,7 +95,9 @@ export function deleteProduct(id) {
 export function getProducts() {
   return async function (dispatch) {
     try {
-      const { data } = await axios("http://localhost:3001/products");
+      const { data } = await axios(
+        "https://dulce-y-salado.herokuapp.com/products"
+      );
       return dispatch({ type: GET_PRODUCTS, payload: data });
     } catch (err) {
       console.log(err);
@@ -104,7 +109,7 @@ export function getProductsForName(nombre) {
   return async function (dispatch) {
     try {
       const { data } = await axios(
-        `http://localhost:3001/products?name=${nombre}`
+        `https://dulce-y-salado.herokuapp.com/products?name=${nombre}`
       );
       return dispatch({ type: GET_PRODUCTS_FOR_NAME, payload: data });
     } catch (err) {
@@ -116,7 +121,9 @@ export function getProductsForName(nombre) {
 export function getProductsForId(id) {
   return async function (dispatch) {
     try {
-      const { data } = await axios("http://localhost:3001/products/" + id);
+      const { data } = await axios(
+        "https://dulce-y-salado.herokuapp.com/products/" + id
+      );
       return dispatch({ type: GET_PRODUCTS_FOR_ID, payload: data });
     } catch (err) {
       console.log(err);
@@ -138,7 +145,9 @@ export function createCategory(payload) {
 export function getCategories() {
   return async function (dispatch) {
     try {
-      const { data } = await axios("http://localhost:3001/categorias");
+      const { data } = await axios(
+        "https://dulce-y-salado.herokuapp.com/categorias"
+      );
       return dispatch({ type: GET_CATEGORIES, payload: data });
     } catch (err) {
       console.log(err);
@@ -161,7 +170,9 @@ export function deleteCategory(id) {
 export function getCategoriesForId(id) {
   return async function (dispatch) {
     try {
-      const { data } = await axios("http://localhost:3001/categorias?id=" + id);
+      const { data } = await axios(
+        "https://dulce-y-salado.herokuapp.com/categorias?id=" + id
+      );
       return dispatch({ type: GET_CATEGORY_FOR_ID, payload: data });
     } catch (err) {
       console.log(err);
@@ -183,7 +194,9 @@ export function createFlavor(payload) {
 export function getFlavor() {
   return async function (dispatch) {
     try {
-      const { data } = await axios("http://localhost:3001/sabores");
+      const { data } = await axios(
+        "https://dulce-y-salado.herokuapp.com/sabores"
+      );
       return dispatch({ type: GET_FLAVOR, payload: data });
     } catch (err) {
       console.log(err);
@@ -216,7 +229,9 @@ export function createFilling(payload) {
 export function getFilling() {
   return async function (dispatch) {
     try {
-      const { data } = await axios("http://localhost:3001/rellenos");
+      const { data } = await axios(
+        "https://dulce-y-salado.herokuapp.com/rellenos"
+      );
       return dispatch({ type: GET_FILLING, payload: data });
     } catch (err) {
       console.log(err);
@@ -246,7 +261,7 @@ export function getProductsForCategoriesId(
   return async function (dispatch) {
     try {
       const { data } = await axios(
-        `http://localhost:3001/products?${nameCategory}=${categoryId}&${nameRelleno}=${rellenoId}&${nameSabor}=${saborId}`
+        `https://dulce-y-salado.herokuapp.com/products?${nameCategory}=${categoryId}&${nameRelleno}=${rellenoId}&${nameSabor}=${saborId}`
       );
       return dispatch({ type: GET_PRODUCT_FOR_CATEGORIES_ID, payload: data });
     } catch (err) {
@@ -259,7 +274,7 @@ export function getProductsForCategoryId(categoryId) {
   return async function (dispatch) {
     try {
       const { data } = await axios(
-        `http://localhost:3001/products?categoryId=${categoryId}`
+        `https://dulce-y-salado.herokuapp.com/products?categoryId=${categoryId}`
       );
       return dispatch({ type: GET_PRODUCT_FOR_CATEGORY_ID, payload: data });
     } catch (err) {
@@ -272,7 +287,7 @@ export function getProductsForFlavorId(flavorId) {
   return async function (dispatch) {
     try {
       const { data } = await axios(
-        `http://localhost:3001/products?saborId=${flavorId}`
+        `https://dulce-y-salado.herokuapp.com/products?saborId=${flavorId}`
       );
       return dispatch({ type: GET_PRODUCT_FOR_FLAVOR_ID, payload: data });
     } catch (err) {
@@ -285,7 +300,7 @@ export function getProductsForFillingId(fillingId) {
   return async function (dispatch) {
     try {
       const { data } = await axios(
-        `http://localhost:3001/products?rellenoId=${fillingId}`
+        `https://dulce-y-salado.herokuapp.com/products?rellenoId=${fillingId}`
       );
       return dispatch({ type: GET_PRODUCT_FOR_FILLING_ID, payload: data });
     } catch (err) {

@@ -36,6 +36,11 @@
       }
     }
   }
+
+  .containerFooterDetails {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 @media (max-width: 649px) {
@@ -54,6 +59,9 @@
         width: 7rem;
         font-size: 0.9rem;
       }
+    }
+    .containerFooterDetails {
+      position: relative;
     }
   }
 }

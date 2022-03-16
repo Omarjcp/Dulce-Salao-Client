@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 import { Carousel } from "antd";
-import { Image, Box, CloseButton } from "@chakra-ui/react";
+import { Image, Box, CloseButton, Avatar } from "@chakra-ui/react";
 import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
 import swal from "sweetalert";
 
@@ -16,11 +16,11 @@ export const CarouselComp = ({ product, token }) => {
   const location = useLocation();
   let { id } = useParams();
 
-  let productsWhitImages = product.foto.split(", ");
+  let productsWhitImages = product?.foto?.split(", ");
 
   const onDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteProduct(product.id));
+    dispatch(deleteProduct(product?.id));
 
     swal("producto eliminado correctamente", {
       buttons: false,
@@ -41,8 +41,8 @@ export const CarouselComp = ({ product, token }) => {
         prevArrow={<LeftCircleOutlined />}
         nextArrow={<RightCircleOutlined />}
       >
-        {productsWhitImages.length > 1 ? (
-          productsWhitImages.map((img) => {
+        {productsWhitImages?.length > 1 ? (
+          productsWhitImages?.map((img) => {
             return (
               <>
                 {localStorage.getItem("token") ? (

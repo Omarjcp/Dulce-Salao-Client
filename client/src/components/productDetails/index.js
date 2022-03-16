@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import { Box, Button } from "@chakra-ui/react";
 import { getProductsForId } from "../../redux/actions";
@@ -8,9 +8,11 @@ import { getProductsForId } from "../../redux/actions";
 import { CarouselComp } from "../home/products/carousel";
 
 import "./index.scss";
+import { Loading } from "../loading";
+import { Footbar } from "../footbar";
 
 export const ProductDetail = () => {
-  // const location = useLocation();
+  const history = useHistory();
   const dispatch = useDispatch();
   let { id } = useParams();
   let { productId, idState } = useSelector((state) => state);
@@ -24,14 +26,13 @@ export const ProductDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    if (Number(idState) === Number(id)) setLoading(false);
-  }, [idState]);
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
 
   return (
     <Box className="parentDescription">
       {loading ? (
-        // <Loading />
-        <></>
+        <Loading />
       ) : (
         <>
           <Box
@@ -59,26 +60,37 @@ export const ProductDetail = () => {
                 fontSize="md"
                 textTransform="uppercase"
               >
-                {productId.nombre}
+                {productId?.nombre
+                  ? productId?.nombre
+                  : "Producto no encontrado"}
               </Box>
             </Box>
 
             <Box mt="1" as="h2" color="#696969">
-              {productId.descripcion}
+              {productId?.descripcion
+                ? productId?.descripcion
+                : "Producto no encontrado"}
             </Box>
 
-            <Button
-              className="buttonConsult"
-              variant="outline"
-              borderWidth="1px"
-              borderColor="pink"
-              // onClick={() => {}}
+            <a
+              href="https://api.whatsapp.com/send?phone=+5804243286384"
+              target="_blank"
             >
-              Consultar
-            </Button>
+              <Button
+                className="buttonConsult"
+                variant="outline"
+                borderWidth="1px"
+                borderColor="pink"
+              >
+                Consultar
+              </Button>
+            </a>
           </Box>
         </>
       )}
+      <Box className="containerFooterDetails">
+        <Footbar />
+      </Box>
     </Box>
   );
 };

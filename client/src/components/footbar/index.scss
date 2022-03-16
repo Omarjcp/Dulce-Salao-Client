@@ -35,8 +35,15 @@
   }
 }
 
+@media (max-height: 700px) {
+  .containerFootbar {
+    height: 6.5rem;
+  }
+}
+
 @media (max-width: 530px) {
   .containerFootbar {
+    height: 6.5rem;
     .containerAdress {
       display: none;
     }

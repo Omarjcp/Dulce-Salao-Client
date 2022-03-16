@@ -27,6 +27,7 @@ import {
 import "./index.scss";
 // import { Loading } from "../../loading";
 import { CarouselComp } from "./carousel";
+import { Loading } from "../../loading";
 
 export const Products = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export const Products = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [loading, setLoading] = useState(true);
+  const [togleLoading, setTogleLoading] = useState(true);
 
   const [input, setInput] = useState("");
 
@@ -55,9 +56,12 @@ export const Products = () => {
     history.push(`/detalle/${e.id}`);
   };
 
-  return loading && !products ? (
-    // setTimeout(setLoading(false), 2000) && <Loading />
-    setTimeout(setLoading(false), 2000) && <></>
+  useEffect(() => {
+    setTimeout(() => setTogleLoading(false), 2000);
+  });
+
+  return togleLoading ? (
+    <Loading />
   ) : !products ? (
     <>
       <Modal onClose={onClose} isOpen={true} isCentered>
