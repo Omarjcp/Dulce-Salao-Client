@@ -90,9 +90,9 @@ export const Categories = () => {
           <Heading as="h2" size="md" marginBottom="0.5" textColor="pink.200">
             Categorias
           </Heading>
-          {categories.map((category) => {
+          {categories.map((category, i) => {
             return (
-              <Box key={category.id}>
+              <Box key={i}>
                 <Link
                   onClick={(e) => onClick(e, "categor")}
                   key={category.id}
@@ -122,11 +122,11 @@ export const Categories = () => {
           <Heading as="h2" size="md" marginBottom="0.5" textColor="pink.200">
             Sabores
           </Heading>
-          {flavors.map((flavor) => {
+          {flavors.map((flavor, i) => {
             return (
               <Link
                 onClick={(e) => onClick(e, "flavor")}
-                key={flavor.id}
+                key={i}
                 id={flavor.id}
               >
                 {flavor.nombre}
@@ -152,13 +152,9 @@ export const Categories = () => {
           <Heading as="h2" size="md" marginBottom="0.5" textColor="pink.200">
             Rellenos
           </Heading>
-          {filling.map((fill) => {
+          {filling.map((fill, i) => {
             return (
-              <Link
-                onClick={(e) => onClick(e, "filling")}
-                key={fill.id}
-                id={fill.id}
-              >
+              <Link onClick={(e) => onClick(e, "filling")} key={i} id={fill.id}>
                 {fill.nombre}
                 {localStorage.getItem("token") ? (
                   <CloseButton

@@ -24,14 +24,17 @@ export const CarouselComp = ({ product, token }) => {
 
     swal("producto eliminado correctamente", {
       buttons: false,
-      timer: 3000,
+      timer: 4000,
     });
 
-    dispatch(getProducts());
-    setTimeout(
-      location.pathname === "/" ? history.go(0) : history.push("/"),
-      3000
-    );
+    setTimeout(() => {
+      if (location.pathname === "/") {
+        dispatch(getProducts());
+      } else {
+        history.push("/");
+        dispatch(getProducts());
+      }
+    }, 4000);
   };
 
   return (

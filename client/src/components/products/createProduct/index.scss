@@ -1,0 +1,14 @@
+.ant-form, .ant-form-vertical {
+    margin-top: 2rem;
+}
+
+.ant-upload-list-item-error, .ant-upload-list-item-error .ant-upload-text-icon > .anticon, .ant-upload-list-item-error .ant-upload-list-item-name {
+    color: grey !important
+}
+
+.ant-upload {
+    width: 15rem;
+    .ant-btn, .ant-btn-default {
+        width: 100%;
+    }
+}

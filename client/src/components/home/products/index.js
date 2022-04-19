@@ -57,8 +57,11 @@ export const Products = () => {
   };
 
   useEffect(() => {
+    dispatch(getProducts());
     setTimeout(() => setTogleLoading(false), 2000);
-  });
+  }, []);
+
+  console.log(products);
 
   return togleLoading ? (
     <Loading />
