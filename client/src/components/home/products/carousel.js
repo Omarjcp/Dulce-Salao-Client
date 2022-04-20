@@ -1,6 +1,8 @@
 import { useParams, useHistory, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteProduct, getProducts } from "../../../redux/actions";
+import { app } from "../../../fb";
 
 import { Carousel } from "antd";
 import { Image, Box, CloseButton, Avatar } from "@chakra-ui/react";
@@ -8,7 +10,6 @@ import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
 import swal from "sweetalert";
 
 import "./index.scss";
-import { deleteProduct, getProducts } from "../../../redux/actions";
 
 export const CarouselComp = ({ product, token }) => {
   const dispatch = useDispatch();
@@ -18,9 +19,13 @@ export const CarouselComp = ({ product, token }) => {
 
   let productsWhitImages = product?.foto?.split(", ");
 
-  const onDelete = (e) => {
+  const onDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteProduct(product?.id));
+
+    for (let i = 0; i < productsWhitImages.length; i++) {
+      await app?.storage().refFromURL(productsWhitImages[i]).delete();
+    }
 
     swal("producto eliminado correctamente", {
       buttons: false,

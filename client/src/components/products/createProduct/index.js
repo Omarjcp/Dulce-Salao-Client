@@ -28,8 +28,6 @@ export const NewProduct = () => {
 
   const [form] = Form.useForm();
 
-  // console.log(categories, flavors, filling);
-
   const onFinish = async (value) => {
     setToggleLoading(true);
     const urlsImages = [];
@@ -37,7 +35,7 @@ export const NewProduct = () => {
 
     for (let i = 0; i < imageStorage.length; i++) {
       const archivoRef = imageStorage[i]?.originFileObj;
-      const storageRef = app?.storage()?.ref();
+      const storageRef = app?.storage()?.ref(value.nombre);
       const archivoPath = storageRef?.child(
         `${value.nombre}-${archivoRef?.name}`
       );
@@ -56,15 +54,6 @@ export const NewProduct = () => {
       form.resetFields();
     }
   };
-
-  // useEffect(() => {
-  //   if (msgCreate) {
-  //     message.loading(msgCreate);
-  //     setTimeout(() => {
-  //       history.go(0);
-  //     }, 2000);
-  //   }
-  // }, [msgCreate]);
 
   useEffect(() => {
     dispatch(getCategories());

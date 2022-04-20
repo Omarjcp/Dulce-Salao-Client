@@ -10,6 +10,7 @@ import { CarouselComp } from "../home/products/carousel";
 import "./index.scss";
 import { Loading } from "../loading";
 import { Footbar } from "../footbar";
+import { List } from "antd";
 
 export const ProductDetail = () => {
   const history = useHistory();
@@ -20,6 +21,7 @@ export const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
 
   // let idProduct = location.pathname.split("/")[2];
+  let descriptionProduct = productId?.descripcion?.split(". ");
 
   useEffect(() => {
     dispatch(getProductsForId(id));
@@ -67,9 +69,17 @@ export const ProductDetail = () => {
             </Box>
 
             <Box mt="1" as="h2" color="#696969">
-              {productId?.descripcion
+              <List
+                size="small"
+                // header={<div>Header</div>}
+                // footer={<div>Footer</div>}
+                // bordered
+                dataSource={descriptionProduct}
+                renderItem={(item) => <List.Item>- {item}</List.Item>}
+              />
+              {/* {productId?.descripcion
                 ? productId?.descripcion
-                : "Producto no encontrado"}
+                : "Producto no encontrado"} */}
             </Box>
 
             <a
