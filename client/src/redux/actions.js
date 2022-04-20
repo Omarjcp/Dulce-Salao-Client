@@ -71,7 +71,6 @@ export function createProduct(payload) {
 export function updateProduct(id, payload) {
   return async function (dispatch) {
     try {
-      console.log("antes action", payload);
       const { data } = await instance.put("products/" + id, payload);
       return dispatch({ type: UPDATE_PRODUCT, payload: data });
     } catch (err) {
@@ -84,7 +83,6 @@ export function deleteProduct(id) {
   return async function (dispatch) {
     try {
       const { data } = await instance.delete("products/" + id);
-      console.log(data);
       return dispatch({ type: DELETE_PRODUCT, payload: data });
     } catch (err) {
       console.log(err);
@@ -159,7 +157,6 @@ export function deleteCategory(id) {
   return async function (dispatch) {
     try {
       const { data } = await instance.delete("categorias/" + id);
-      console.log(data);
       return dispatch({ type: DELETE_CATEGORY, payload: data });
     } catch (err) {
       console.log(err);

@@ -3,13 +3,32 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin-top: 2rem;
+  min-height: 50vh;
 
   .containerTextContactus {
     max-width: 70%;
 
     p {
-      font-size: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .containerFooterContactUs {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .containerMainContactus {
+    margin-top: 1rem;
+
+    .containerTextContactus {
+      max-width: 80%;
+
+      p {
+        font-size: .9rem;
+      }
     }
   }
 }

@@ -3,6 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import {
+  getProducts,
+  getProductsForId,
+  getProductsForName,
+} from "../../../redux/actions";
+
+import { CarouselComp } from "./carousel";
+import { Loading } from "../../loading";
+
+import {
   Box,
   Wrap,
   WrapItem,
@@ -18,20 +27,10 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
-import {
-  getProducts,
-  getProductsForId,
-  getProductsForName,
-} from "../../../redux/actions";
-
 import "./index.scss";
-// import { Loading } from "../../loading";
-import { CarouselComp } from "./carousel";
-import { Loading } from "../../loading";
 
 export const Products = () => {
   const dispatch = useDispatch();
-  // const location = useLocation();
   const history = useHistory();
   let { products, token } = useSelector((state) => state);
 
@@ -60,8 +59,6 @@ export const Products = () => {
     dispatch(getProducts());
     setTimeout(() => setTogleLoading(false), 2000);
   }, []);
-
-  console.log(products);
 
   return togleLoading ? (
     <Loading />
@@ -98,7 +95,7 @@ export const Products = () => {
         </Button>
       </form>
 
-      <Wrap spacing="0" justify="center" alignItems="center" paddingTop="1rem">
+      <Wrap spacing="2" justify="center" alignItems="center" paddingTop="1rem">
         {products?.map((product) => {
           return (
             <WrapItem key={product.id}>
@@ -119,12 +116,7 @@ export const Products = () => {
                   h="9rem"
                 >
                   <Box display="flex" alignItems="center">
-                    <Box
-                      color="gray.500"
-                      // fontWeight="semibold"
-                      letterSpacing="wide"
-                      fontSize="lg"
-                    >
+                    <Box color="gray.500" letterSpacing="wide" fontSize="lg">
                       {product.nombre}
                     </Box>
                   </Box>

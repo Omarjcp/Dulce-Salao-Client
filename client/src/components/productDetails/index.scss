@@ -4,7 +4,8 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 5rem;
+  padding: 2.5rem 2.5rem 0 2.5rem;
 
   .containerImageDescription {
     width: 100%;
@@ -36,16 +37,18 @@
       }
     }
   }
-
-  .containerFooterDetails {
-    position: absolute;
-    bottom: 0;
-  }
+  
+}
+.containerFooterDetails {
+  position: absolute;
+  bottom: 0;
 }
 
 @media (max-width: 649px) {
   .parentDescription {
     flex-direction: column;
+    
+    
 
     .containerImageDescription {
       height: 17rem;
@@ -63,5 +66,11 @@
     .containerFooterDetails {
       position: relative;
     }
+  }
+}
+
+@media (max-height: 1000px) {
+  .parentDescription {
+    margin-top: 0;
   }
 }

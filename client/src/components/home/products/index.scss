@@ -1,7 +1,7 @@
 .containerProduct {
   margin: 0.5rem;
   width: 23rem;
-  height: 24rem;
+  height: 30rem;
 
   .nameProduct {
     font-size: 1rem;
@@ -37,8 +37,10 @@
 
 @media (max-width: 649px) {
   .containerProduct {
-    width: 17rem;
-    height: 23rem;
+    margin: 1rem 0 1rem 0;
+    
+    width: 20rem;
+    height: 26.5rem;
 
     .buttonSeeMore {
       font-size: 11px;
@@ -58,10 +60,14 @@
       display: none;
     }
   }
+
+  .imageProduct {
+    height: 18rem !important;
+  }
 }
 
 .imageProduct {
-  height: 15rem;
+  height: 20rem;
 }
 
 .imageProductDetails {

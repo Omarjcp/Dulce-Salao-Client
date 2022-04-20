@@ -1,11 +1,10 @@
 import { useParams, useHistory, useLocation } from "react-router-dom";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteProduct, getProducts } from "../../../redux/actions";
 import { app } from "../../../fb";
 
+import { Image, Box, CloseButton } from "@chakra-ui/react";
 import { Carousel } from "antd";
-import { Image, Box, CloseButton, Avatar } from "@chakra-ui/react";
 import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
 import swal from "sweetalert";
 
@@ -43,7 +42,7 @@ export const CarouselComp = ({ product, token }) => {
   };
 
   return (
-    <Box maxW="md">
+    <Box>
       <Carousel
         arrows={true}
         prevArrow={<LeftCircleOutlined />}

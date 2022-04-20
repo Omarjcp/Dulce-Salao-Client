@@ -1,16 +1,4 @@
-import { useState, useEffect } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Text,
-  Spinner,
-} from "@chakra-ui/react";
+import { Modal, ModalOverlay, ModalContent, Spinner } from "@chakra-ui/react";
 
 export const Loading = () => {
   return (

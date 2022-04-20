@@ -1,6 +1,7 @@
 import { Route } from "react-router-dom";
 import "antd/dist/antd.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
 

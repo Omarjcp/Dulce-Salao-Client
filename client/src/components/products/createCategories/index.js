@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -17,7 +16,6 @@ export const CreateCategories = () => {
   const [form] = Form.useForm();
 
   const onFinish = (value) => {
-    console.log(value);
     if (location.pathname === "/nuevascategorias/catg") {
       dispatch(createCategory(value));
 

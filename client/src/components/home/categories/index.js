@@ -14,18 +14,24 @@ import {
   deleteFlavor,
   deleteFilling,
 } from "../../../redux/actions";
+import { LinkToCreateProduct } from "../../products/linkToCreateProducts";
 
 import { Box, Link, Heading, Divider, CloseButton } from "@chakra-ui/react";
+import swal from "sweetalert";
 
 import "./index.scss";
-import { LinkToCreateProduct } from "../../products/linkToCreateProducts";
-import swal from "sweetalert";
 
 export const Categories = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   let { categories, flavors, filling } = useSelector((state) => state);
+
+  const getAllCategories = () => {
+    dispatch(getCategories());
+    dispatch(getFlavor());
+    dispatch(getFilling());
+  };
 
   const onClick = (e, categ) => {
     if (categ === "categor") {
@@ -41,46 +47,47 @@ export const Categories = () => {
 
   const onDeleteCategory = (e, idCategory, idFlavor, idFilling) => {
     e.preventDefault();
+
     if (idCategory) {
       dispatch(deleteCategory(idCategory));
 
       setTimeout(() => {
         swal("Categoria eliminada correctamente", {
           buttons: false,
-          icon: "success",
+          timer: 2000,
         });
       }, 500);
 
-      setTimeout(() => history.go(0), 3000);
+      setTimeout(() => {
+        getAllCategories();
+      }, 2000);
     } else if (idFlavor) {
       dispatch(deleteFlavor(idFlavor));
 
-      setTimeout(() => {
-        swal("Sabor eliminado correctamente", {
-          buttons: false,
-          icon: "success",
-        });
-      }, 500);
+      swal("Sabor eliminado correctamente", {
+        buttons: false,
+        timer: 2000,
+      });
 
-      setTimeout(() => history.go(0), 3000);
+      setTimeout(() => {
+        getAllCategories();
+      }, 2000);
     } else if (idFilling) {
       dispatch(deleteFilling(idFilling));
 
-      setTimeout(() => {
-        swal("Relleno eliminado correctamente", {
-          buttons: false,
-          icon: "success",
-        });
-      }, 500);
+      swal("Relleno eliminado correctamente", {
+        buttons: false,
+        timer: 2000,
+      });
 
-      setTimeout(() => history.go(0), 3000);
+      setTimeout(() => {
+        getAllCategories();
+      }, 2000);
     }
   };
 
   useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getFlavor());
-    dispatch(getFilling());
+    getAllCategories();
   }, []);
 
   return (

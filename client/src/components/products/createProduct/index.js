@@ -63,14 +63,14 @@ export const NewProduct = () => {
 
   const normFile = (e) => {
     setImageStorage(e?.fileList);
-    console.log("NORM FILE", imageStorage);
+    // console.log("NORM FILE", imageStorage);
   };
 
   const props = {
     action: "https://dulce-y-salado.herokuapp.com/products",
     onChange({ file, fileList }) {
       setToggleLoading(true);
-      console.log(file.status);
+      // console.log(file.status);
       if (file.status !== "uploading") {
         setToggleLoading(false);
       }
@@ -124,7 +124,7 @@ export const NewProduct = () => {
         </Form.Item>
         <Form.Item
           name="descripcion"
-          label="Descriocion"
+          label="Descripcion"
           rules={[
             { required: true },
             {

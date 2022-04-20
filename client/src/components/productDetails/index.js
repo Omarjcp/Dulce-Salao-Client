@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { Box, Button } from "@chakra-ui/react";
 import { getProductsForId } from "../../redux/actions";
-// import { Loading } from "../loading";
-import { CarouselComp } from "../home/products/carousel";
 
-import "./index.scss";
+import { CarouselComp } from "../home/products/carousel";
 import { Loading } from "../loading";
 import { Footbar } from "../footbar";
+
+import { Box, Button } from "@chakra-ui/react";
 import { List } from "antd";
 
+import "./index.scss";
+
 export const ProductDetail = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
   let { id } = useParams();
-  let { productId, idState } = useSelector((state) => state);
+  let { productId } = useSelector((state) => state);
 
   const [loading, setLoading] = useState(true);
 
-  // let idProduct = location.pathname.split("/")[2];
   let descriptionProduct = productId?.descripcion?.split(". ");
 
   useEffect(() => {
@@ -28,8 +27,10 @@ export const ProductDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
-  }, []);
+    if (productId && Number(productId.id) === Number(id)) {
+      setLoading(false);
+    }
+  }, [productId]);
 
   return (
     <Box className="parentDescription">
@@ -71,15 +72,9 @@ export const ProductDetail = () => {
             <Box mt="1" as="h2" color="#696969">
               <List
                 size="small"
-                // header={<div>Header</div>}
-                // footer={<div>Footer</div>}
-                // bordered
                 dataSource={descriptionProduct}
                 renderItem={(item) => <List.Item>- {item}</List.Item>}
               />
-              {/* {productId?.descripcion
-                ? productId?.descripcion
-                : "Producto no encontrado"} */}
             </Box>
 
             <a
