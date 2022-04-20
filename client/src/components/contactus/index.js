@@ -23,6 +23,7 @@ export const ContactUs = () => {
           <Link
             href="https://www.instagram.com/duulceysalaoo/?hl=es-la"
             isExternal
+            color="#ff7b7b"
             _hover={{ color: "pink" }}
           >
             Dulce y salao <ExternalLinkIcon mx="2px" />
@@ -33,6 +34,7 @@ export const ContactUs = () => {
           <Link
             href="https://api.whatsapp.com/send?phone=+5804243286384"
             isExternal
+            color="#ff7b7b"
             _hover={{ color: "pink" }}
           >
             Nuestro Whatsapp <ExternalLinkIcon mx="2px" />

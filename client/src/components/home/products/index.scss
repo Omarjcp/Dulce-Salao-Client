@@ -68,10 +68,19 @@
 
 .imageProduct {
   height: 20rem;
+  object-fit: cover;
+  object-position: center;
+  -o-object-fit: cover;
+  -o-object-position: center;
 }
 
 .imageProductDetails {
   height: 20rem;
+  // aspect-ratio: 1.4 !important;
+  object-fit: cover;
+  object-position: center;
+  -o-object-fit: cover;
+  -o-object-position: center;
 }
 
 .ant-carousel .slick-prev,

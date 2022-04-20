@@ -1,28 +1,45 @@
 .containerMainAboutus {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  margin-top: 2rem;
-
+  margin-top: 3rem;
+  
   .containerTextAboutus {
-    max-width: 70%;
+    width: 42rem;
+    padding: 2rem;
 
     p {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     label {
       color: grey;
+    }
+  }
+
+  .containerFooterAboutUs {
+    margin-top: 3rem;
+    // position: relative;
+  }
+}
+
+@media (max-width: 730px) {
+  .containerMainAboutus {
+margin-top: 1.5rem;
+    .containerTextAboutus {
+      width: 80%;
+
+      p {
+        font-size: 1rem;
+      }
     }
   }
 }
 
 @media (max-height: 700px) {
   .containerMainAboutus {
-    margin-top: 1rem;
 
     .containerTextAboutus {
-      max-width: 80%;
 
       p {
         font-size: 0.8rem;
