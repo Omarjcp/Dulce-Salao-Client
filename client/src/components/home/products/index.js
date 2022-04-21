@@ -57,12 +57,14 @@ export const Products = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-    setTimeout(() => setTogleLoading(false), 2000);
+    // setTimeout(() => setTogleLoading(false), 2000);
   }, []);
 
-  return togleLoading ? (
+  console.log(products);
+
+  return products?.lenght === 0 ? (
     <Loading />
-  ) : !products ? (
+  ) : products === undefined ? (
     <>
       <Modal onClose={onClose} isOpen={true} isCentered>
         <ModalOverlay />
