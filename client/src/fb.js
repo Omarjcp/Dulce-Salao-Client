@@ -3,12 +3,12 @@ import "firebase/compat/storage";
 import "firebase/compat/firestore";
 
 export const app = firebase.initializeApp({
-  projectId: "storage-dulce-salao",
-  appId: "1:638408568251:web:53a1eedae4f470094da89e",
-  storageBucket: "storage-dulce-salao.appspot.com",
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+  appId: process.env.REACT_APP_FIREBASE_APPID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
   locationId: "us-central",
-  apiKey: "AIzaSyBb2qolCkFzw4KLYbJwvQ_w5Mp3ZVpXBt8",
-  authDomain: "storage-dulce-salao.firebaseapp.com",
-  messagingSenderId: "638408568251",
-  measurementId: "G-81B0G3L25B",
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID,
 });
