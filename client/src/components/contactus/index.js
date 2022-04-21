@@ -1,6 +1,10 @@
+import { InstagramOutlined, WhatsAppOutlined } from "@ant-design/icons";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Box, Image, Link, Text } from "@chakra-ui/react";
 import { Footbar } from "../footbar";
+
+import iconInstagram from "./iconInstagram.png";
+import iconWhatsapp from "./iconWhatsapp.png";
 import "./index.scss";
 
 export const ContactUs = () => {
@@ -18,8 +22,11 @@ export const ContactUs = () => {
           realizados con previo pedido.
         </Text>
         <br />
-        <Text>
-          Puedes encontrarnos en nuestro instagram{" "}
+        <Text display="flex" alignItems="center">
+          {/* <InstagramOutlined
+            style={{ fontSize: "2rem", color: "pink", marginRight: ".5rem" }}
+          /> */}
+          <Image src={iconInstagram} marginRight="1rem" w="2.6rem" />
           <Link
             href="https://www.instagram.com/duulceysalaoo/?hl=es-la"
             isExternal
@@ -29,8 +36,11 @@ export const ContactUs = () => {
             Dulce y salao <ExternalLinkIcon mx="2px" />
           </Link>
         </Text>
-        <Text>
-          Del mismo modo puedes hacer tu consulta por{" "}
+        <Text display="flex" alignItems="center">
+          {/* <WhatsAppOutlined
+            style={{ fontSize: "2rem", marginRight: ".5rem", color: "pink" }}
+          /> */}
+          <Image src={iconWhatsapp} marginRight="1rem" w="2.6rem" />
           <Link
             href="https://api.whatsapp.com/send?phone=+5804243286384"
             isExternal
@@ -41,9 +51,9 @@ export const ContactUs = () => {
           </Link>
         </Text>
       </Box>
-      <Box className="containerFooterContactUs">
+      {/* <Box className="containerFooterContactUs">
         <Footbar />
-      </Box>
+      </Box> */}
     </Box>
   );
 };
