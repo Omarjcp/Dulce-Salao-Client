@@ -1,3 +1,5 @@
+@import "../../../variables/colors.scss";
+
 .containerProduct {
   margin: 0.5rem;
   width: 23rem;
@@ -9,13 +11,13 @@
 
   .buttonSeeMore {
     font-size: 13px;
-    color: #ff7b7b;
+    color: $pink-primary;
     line-height: 15px;
     font-weight: normal;
     border-radius: 50px;
 
     &:hover {
-      background-color: #ff7b7b;
+      background-color: $pink-primary;
       color: #fff;
       box-shadow: 2px 4px 10px rgb(190, 190, 190);
     }

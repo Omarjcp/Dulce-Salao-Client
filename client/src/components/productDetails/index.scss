@@ -1,3 +1,5 @@
+@import "../../variables/colors.scss";
+
 .parentDescription {
   display: flex;
   justify-content: center;
@@ -27,11 +29,11 @@
       font-size: 1.2rem;
       line-height: 3rem;
       font-weight: 600;
-      color: #ff7b7b;
+      color: $pink-primary;
       border-radius: 50px;
 
       &:hover {
-        background-color: #ff7b7b;
+        background-color: $pink-primary;
         color: #fff;
         box-shadow: 2px 4px 10px rgb(190, 190, 190);
       }

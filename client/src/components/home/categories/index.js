@@ -16,10 +16,23 @@ import {
 } from "../../../redux/actions";
 import { LinkToCreateProduct } from "../../products/linkToCreateProducts";
 
-import { Box, Link, Heading, Divider, CloseButton } from "@chakra-ui/react";
+import {
+  Box,
+  Link,
+  Heading,
+  Divider,
+  CloseButton,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  Text,
+} from "@chakra-ui/react";
 import swal from "sweetalert";
 
 import "./index.scss";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 export const Categories = () => {
   const dispatch = useDispatch();
@@ -93,7 +106,205 @@ export const Categories = () => {
   return (
     <>
       <Box className="containerCategories">
-        <Box marginBottom="1rem" display="flex" flexDirection="column">
+        <Accordion allowMultiple ml="2rem">
+          <AccordionItem>
+            <AccordionButton>
+              <Text
+                flex="1"
+                textAlign="left"
+                marginTop=".1rem"
+                marginBottom=".1rem"
+                textColor="pink.200"
+                fontWeight="600"
+                letterSpacing="1px"
+                fontSize="1.1rem"
+              >
+                Categorias
+              </Text>
+              <AccordionIcon />
+            </AccordionButton>
+
+            <AccordionPanel pb={4}>
+              {categories.map((category, i) => {
+                return (
+                  <Box
+                    pb="2"
+                    pt="1"
+                    pl="2"
+                    display="flex"
+                    justifyContent="space-between"
+                    key={i}
+                  >
+                    <Link
+                      width="100%"
+                      fontSize="1rem"
+                      onClick={(e) => onClick(e, "categor")}
+                      key={category.id}
+                      id={category.id}
+                    >
+                      {category.nombre}
+                    </Link>
+                    {localStorage.getItem("token") ? (
+                      <CloseButton
+                        display="inline"
+                        color="red"
+                        fontSize=".5rem"
+                        height="1rem"
+                        width="1rem"
+                        onClick={(e) =>
+                          onDeleteCategory(e, category.id, false, false)
+                        }
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </Box>
+                );
+              })}
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <AccordionButton>
+              <Text
+                flex="1"
+                textAlign="left"
+                marginTop=".1rem"
+                marginBottom=".1rem"
+                textColor="pink.200"
+                fontWeight="600"
+                letterSpacing="1px"
+                fontSize="1.1rem"
+              >
+                Sabores
+              </Text>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={4}>
+              {flavors.map((flavor, i) => {
+                return (
+                  <Box
+                    pb="2"
+                    pt="1"
+                    pl="2"
+                    display="flex"
+                    justifyContent="space-between"
+                    key={i}
+                  >
+                    <Link
+                      width="100%"
+                      fontSize="1rem"
+                      onClick={(e) => onClick(e, "flavor")}
+                      key={i}
+                      id={flavor.id}
+                    >
+                      {flavor.nombre}
+                    </Link>
+                    {localStorage.getItem("token") ? (
+                      <CloseButton
+                        display="inline"
+                        color="red"
+                        fontSize=".5rem"
+                        height="1rem"
+                        width="1rem"
+                        onClick={(e) =>
+                          onDeleteCategory(e, false, flavor.id, false)
+                        }
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </Box>
+                );
+              })}
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <AccordionButton>
+              <Text
+                flex="1"
+                textAlign="left"
+                marginTop=".1rem"
+                marginBottom=".1rem"
+                textColor="pink.200"
+                fontWeight="600"
+                letterSpacing="1px"
+                fontSize="1.1rem"
+              >
+                Rellenos
+              </Text>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={4}>
+              {filling.map((fill, i) => {
+                return (
+                  <Box
+                    pb="2"
+                    pt="1"
+                    pl="2"
+                    display="flex"
+                    justifyContent="space-between"
+                    key={i}
+                  >
+                    <Link
+                      width="100%"
+                      fontSize="1rem"
+                      onClick={(e) => onClick(e, "filling")}
+                      key={i}
+                      id={fill.id}
+                    >
+                      {fill.nombre}
+                    </Link>
+                    {localStorage.getItem("token") ? (
+                      <CloseButton
+                        display="inline"
+                        color="red"
+                        fontSize=".5rem"
+                        height="1rem"
+                        width="1rem"
+                        onClick={(e) =>
+                          onDeleteCategory(e, false, false, fill.id)
+                        }
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </Box>
+                );
+              })}
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+        <Divider
+          margin="2rem 0 2rem 0"
+          orientation="horizontal"
+          color="gray.400"
+        />
+        <Box marginLeft="3rem">
+          <Link onClick={() => dispatch(getProducts())}>
+            Ver todos los productos
+          </Link>{" "}
+          <br />
+          <LinkToCreateProduct />
+          <br />
+          {localStorage.getItem("token") && (
+            <>
+              <Link onClick={() => history.push("/nuevascategorias/catg")}>
+                Crear categorias
+              </Link>
+              <br />
+              <Link onClick={() => history.push("/nuevascategorias/sbrs")}>
+                Crear sabores
+              </Link>
+              <br />
+              <Link onClick={() => history.push("/nuevascategorias/rllns")}>
+                Crear rellenos
+              </Link>
+            </>
+          )}
+        </Box>
+        {/* <Box marginBottom="1rem" display="flex" flexDirection="column">
           <Heading as="h2" size="md" marginBottom="0.5" textColor="pink.200">
             Categorias
           </Heading>
@@ -204,7 +415,7 @@ export const Categories = () => {
               Crear rellenos
             </Link>
           </>
-        )}
+        )} */}
       </Box>
     </>
   );
