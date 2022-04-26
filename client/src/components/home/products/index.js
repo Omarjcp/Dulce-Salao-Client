@@ -60,8 +60,6 @@ export const Products = () => {
     // setTimeout(() => setTogleLoading(false), 2000);
   }, []);
 
-  console.log(products);
-
   return products?.lenght === 0 ? (
     <Loading />
   ) : products === undefined ? (

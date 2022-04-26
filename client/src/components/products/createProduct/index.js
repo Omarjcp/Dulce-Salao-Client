@@ -49,7 +49,7 @@ export const NewProduct = () => {
     value.foto = stringsUrlsImages;
     if (value) {
       setToggleLoading(false);
-      console.log(value);
+      // console.log(value);
       dispatch(createProduct(value));
       form.resetFields();
     }
